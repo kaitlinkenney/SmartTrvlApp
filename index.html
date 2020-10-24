@@ -1,11 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="materialize/css/style.css" />
+    <script src="https://kit.fontawesome.com/f84283eaae.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
     <title>Document</title>
 </head>
+
 <body>
-    
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo" style="color: black"><i class="material-icons">cloud</i>SMARTRVL</a>
+        </div>
+    </nav>
+    <header>
+        <h2>
+            Travel safe, and never overpay.
+        </h2>
+    </header>
+    <div class="row" id="container">
+        <form class="col s6">
+            <div class="row">
+                <div class="input-field col s3">
+                    <i class="material-icons prefix">flight_takeoff</i>
+                    <input id="origin" type="text" class="validate" placeholder="Origin">
+                    <span class="helper-text" data-error="wrong" data-success="right">City, Country</span>
+                </div>
+                <div class="input-field col s3">
+                    <i class="material-icons prefix">flight_land</i>
+                    <input id="destination" type="text" class="validate" placeholder="Destination">
+                    <span class="helper-text" data-error="wrong" data-success="right">City, Country</span>
+                </div>
+                <div class="input-field col s2">
+                    <i class="material-icons prefix">date_range</i>
+                    <input id="flightDate" type="text" class="validate" placeholder="Date">
+                    <span class="helper-text" data-error="wrong" data-success="right">MM/DD/YY</span>
+                </div>
+                <div class="input-field col s3">
+                    <i class="material-icons prefix">attach_money</i>
+                    <input id="max-price" type="tel" class="validate" placeholder="Budget">
+                    <span class="helper-text" data-error="wrong" data-success="right">Max price</span>
+                </div>
+                <div class="input-field col s1">
+                    <button class="btn waves-effect waves-light" id="submit" type="submit" name="action">Go!
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
+
 </html>
