@@ -66,7 +66,7 @@ $(document).ready(function () {
             }
             for (z = 0; z < response.Carriers.length; z++) {
                 carrierList.push(JSON.stringify(response.Carriers[z]))
-                var myCarrier = 'Carrier' + z
+                var myCarrier = 'Carrier' + z 
                 localStorage.setItem(myCarrier, carrierList[z])
             }
         });
