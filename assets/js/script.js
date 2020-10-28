@@ -1,4 +1,8 @@
+var quoteList = []
+var carrierList = []
 $(document).ready(function () {
+
+
 
     console.log("helloo")
     $("#submit").on("click", function () {
@@ -38,38 +42,75 @@ $(document).ready(function () {
         };
 
         // console.log(JSON.stringify(settings))
+        //var quoteList = []
+
         $.ajax(settings).done(function (response) {
             console.log(response);
-            //response.quotes[0].minPrice
-        });
 
+            console.log(response.Quotes[0].MinPrice)
+            for (x = 0; x < response.Quotes.length; x++) {
+
+                if (parseInt(response.Quotes[x].MinPrice) <= parseInt(maxPrice)) {
+                    quoteList.push(JSON.stringify(response.Quotes[x]))
+                }
+            }
+
+            quoteList.sort(function (a, b) {
+                return b.Quotes - a.Quotes;
+            });
+            console.log(quoteList.toString())
+
+        localStorage.setItem("numQuotes", quoteList.length)
+            for (y = 0; y < quoteList.length; y++) {
+                localStorage.setItem(y, quoteList[y]);
+            }
+            for (z = 0; z < response.Carriers.length; z++) {
+                carrierList.push(JSON.stringify(response.Carriers[z]))
+                var myCarrier = 'Carrier' + z
+                localStorage.setItem(myCarrier, carrierList[z])
+            }
+        });
+        window.open("./tickets.html")
     });
 
+
+
+    // var contentUl = document.createElement("ul")
+    // for (var i = 0; i < priceList.Quotes.length; i++) {
+    //     console.log("Does this work:" + priceList.Quotes.length)
+
+    //     var contentLi = document.createElement("li");
+    //     contentLi.textContent = "Airline: " + high_score[i].name + " Price: " + high_score[i].score;
+    //     contentUl.append(contentLi);
+
+    // }
+
+    // document.body.append(contentUl);
+
+
+
+
 });
-    // ​//
-    // /* function sort(items){
+/* function sort(items){
 
-    //   for(x=0;x<items.quotes.length;x++)
-    //   {
+  for(x=0;x<items.quotes.length;x++)
+  {
 
-    //     var temp = item[x];
-    //     if(item[x]>item[x+1])
-    //     {
-    //       item[x] = item[x+1]
-    //       item[x+1] = temp
-    //     }
-    //   }
-    // } */
-    // /*
-
-
-    //  highscores.push(score);
-    //     highscores.sort(function (a, b) {
-    //         return b.score - a.score;
-    //     });
+    var temp = item[x];
+    if(item[x]>item[x+1])
+    {
+      item[x] = item[x+1]
+      item[x+1] = temp
+    }
+  }
+} */
+/*
 
 
-    // first page search button, origin location, destination location, price parameters
+//
 
-    // user starting country, currency, locale, originplace, destinationplace, outboundpartialdate
 
+// first page search button, origin location, destination location, price parameters
+
+// user starting country, currency, locale, originplace, destinationplace, outboundpartialdate
+*/
