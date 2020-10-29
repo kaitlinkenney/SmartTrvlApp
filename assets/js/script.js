@@ -65,9 +65,8 @@ $(document).ready(function () {
                 localStorage.setItem(y, quoteList[y]);
             }
             for (z = 0; z < response.Carriers.length; z++) {
-                carrierList.push(JSON.stringify(response.Carriers[z]))
                 var myCarrier = 'Carrier' + z 
-                localStorage.setItem(myCarrier, carrierList[z])
+                localStorage.setItem(myCarrier, JSON.stringify(response.Carriers[z]))
             }
         });
         window.open("./tickets.html")
