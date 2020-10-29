@@ -3,25 +3,153 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
-header {
-    display: block;
+
+nav {
+    background-color: whitesmoke;
+    padding-left: 10px;
+    padding-bottom: 30px;
+ }
+
+#ticketsBody {
+    background-image: url("https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F200727121711-travel-safe-lead.jpg");
+}
+
+table {
     background-color: white;
-    opacity: 0.9;
-    width: 700px;
+    width: 1000px;
+    margin-top: 70px;
+    opacity: 0.8;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+span {
+    font-family: 'Dancing Script', cursive;
+}
+
+.card {
+    border-style: inset;
+    margin-top: 70px;
+}
+
+.logo {
+    width: 80px;
+    height: 60px;
+}
+
+.coName {
+    color: black;
+    font-size: 35px;
+}
+
+#container {
+    background-color: whitesmoke;
+    width: 500px;
+    height: 400px;
+    border-radius: 5px;
+}
+
+.moreOptions {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(7, 7, 65);
+    display: block;
+    margin-top: 10px;
+    width: 1000px;
+}
+
+.moreOptions:hover {
+    background-color: rgb(9, 114, 9);
+}
+
+header {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    font-weight: bold;
+}
+
+.logo {
+    color:rgb(22, 50, 15);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.helper-text {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+#submit {
+    background-color: rgb(7, 7, 65);
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    border-radius: 5px;
+    width: 480px;
+    height: 30px;
+
+}
+#submit:hover {
+    background-color: rgb(9, 114, 9);
+}
+
+th {
+    background-color:  rgb(7, 7, 65);
+    color: white;
+    padding-left: 20px;
+}
+
+td{
+    padding-left: 25px;
+}
+
+.section {
+    display: block;
+    background-color: pink;
+    float: right;
+    position: relative;
+    left: 50px;
+}
+
+.test{
+    background-color: purple;
+    ;
+}
+
+.card-title {
+    font-family: 'Times New Roman', Times, serif;
     margin-left: 20px;
 }
-nav {
-    background-color: white;
-    opacity: 0.9;
-}
-a .brand-logo {
+
+#homeBtn {
     color: black;
-}
-#container {
-    background-color: white;
+    margin-right: 30px;
 }
 
+.homeBtn:hover{
+    color: green;
+}
 
+h3 {
+ font-family: 'Times New Roman', Times, serif;
+}
 
+ h4{
+    font-family: 'Dancing Script', cursive;
+ }
 
+ h3, h4 {
+    color: rgb(3, 26, 32);
+    font-weight: bold;
+ }
 
+.video {
+    display: block;
+    float: right;
+    margin-right: 180px;
+    padding: 20px;
+    position: relative;
+    bottom: 130px;
+}
+
+.risks {
+ margin-bottom: 12px;
+}
