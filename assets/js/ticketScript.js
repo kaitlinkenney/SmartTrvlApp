@@ -40,7 +40,6 @@ $(document).ready(function () {
 
 
 
-
     // var covsettings = {
     //     "async": true,
     //     "crossDomain": true,
@@ -55,6 +54,7 @@ $(document).ready(function () {
     //     console.log(response);
     //     console.log("working");
     // });
+
     
 
     //console.log(quoteList.toString())
