@@ -3,45 +3,60 @@ $(document).ready(function () {
     var quoteList = []
     var carrierList = []
     var numQuotes = parseInt(localStorage.getItem("numQuotes"))
-    for(x = 1;x<=numQuotes;x++)
-    {
+    for (x = 0; x < numQuotes; x++) {
         quoteList.push(JSON.parse(localStorage.getItem(x)))
     }
-    for(y = numQuotes;y<localStorage.length;y++)
-    {
-        count = 0
-        carrierList.push(JSON.parse(localStorage.getItem("Carrier" + count)))
-        count ++
+    for (y = 0; y < localStorage.length-numQuotes -1; y++) {
+        carrierList.push(JSON.parse(localStorage.getItem("Carrier" + y)))
+        console.log(carrierList[y].CarrierId + "myCID")
     }
-    console.log(quoteList[0].MinPrice)
-    console.log(carrierList[0])
+
+    //console.log(quoteList[0].MinPrice)
+    
     //console.log(quoteList)
 
     function displayPrices() {
-        for(i=0;i<5;i++)
-        {
-        $("#"+i).text(quoteList[i].MinPrice);
-        $("#"+i+"a").text(carrierList[i].Name);
-        }
-    }
-    displayPrices();
+        for (i = 0; i < 5; i++) {
+            $("#" + i).text(quoteList[i].MinPrice);
+            console.log(quoteList[i].OutboundLeg.CarrierIds + "quote's CID")
+            for(p = 0; p< carrierList.length; p++)
+            {
+                console.log(quoteList[i].OutboundLeg.CarrierIds + "ql")
+                console.log(carrierList[p].CarrierId + "cl")
 
-    var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://covid-19-data.p.rapidapi.com/help/countries?format=json",
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
-            "x-rapidapi-key": "1f276bab2bmsh9755c7e198e2120p10a455jsnb0359ae2a1b6"
+                if(quoteList[i].OutboundLeg.CarrierIds == carrierList[p].CarrierId)
+                {
+                    //console.log(carrierList[p].Name + "matches")
+                    $("#" + i + "a").text(carrierList[p].Name);
+                }
+            }
+
+            
         }
     }
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-        console.log("working");
-    });
 
     
+    displayPrices();
+
+
+
+    // var covsettings = {
+    //     "async": true,
+    //     "crossDomain": true,
+    //     "url": "https://covid-19-data.p.rapidapi.com/help/countries?format=json",
+    //     "method": "GET",
+    //     "headers": {
+    //         "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
+    //         "x-rapidapi-key": "1f276bab2bmsh9755c7e198e2120p10a455jsnb0359ae2a1b6"
+    //     }
+    // }
+    // $.ajax(covsettings).done(function (response) {
+    //     console.log(response);
+    //     console.log("working");
+    // });
+
+    
+
     //console.log(quoteList.toString())
 
     // var settings = {
@@ -55,15 +70,15 @@ $(document).ready(function () {
     //     }
     //};
 
-   /*  var contentUl = document.createElement("ul")
-    for (var i = 0; i < quoteList.Quotes.length; i++) {
-        console.log("Does this work:" + quoteList.Quotes.length)
-
-        var contentLi = document.createElement("li");
-        contentLi.textContent = "Airline: " + high_score[i].name + " Price: " + high_score[i].score;
-        contentUl.append(contentLi);
-
-    }
-
-    document.body.append(contentUl); */
+    /*  var contentUl = document.createElement("ul")
+     for (var i = 0; i < quoteList.Quotes.length; i++) {
+         console.log("Does this work:" + quoteList.Quotes.length)
+ 
+         var contentLi = document.createElement("li");
+         contentLi.textContent = "Airline: " + high_score[i].name + " Price: " + high_score[i].score;
+         contentUl.append(contentLi);
+ 
+     }
+ 
+     document.body.append(contentUl); */
 });
