@@ -3,7 +3,8 @@ var carrierList = []
 $(document).ready(function () {
 
 
-
+    $('.slider').slider();
+    
     console.log("helloo")
     $("#submit").on("click", function () {
         console.log("clicked")
@@ -72,7 +73,8 @@ $(document).ready(function () {
         });
         window.open("./tickets.html")
     });
-
+    
+  
 
 
     // var contentUl = document.createElement("ul")
