@@ -1,79 +1,108 @@
 var quoteList = []
 var carrierList = []
 $(document).ready(function () {
-
-
+    //this is for the image slider.
     $('.slider').slider();
-    
-    console.log("helloo")
+
+    // if ("form" === null) {
+    //$("#submit").unbind('click');
+    // for HTML5 "required" attribute
+    //}
+
+    localStorage.clear();
+
     $("#submit").on("click", function () {
-        console.log("clicked")
+        console.log("test123")
 
-        var origin = $("#origin").val().trim();
-        console.log(origin)
-        //.trim();
-
-        var destination = $("#destination").val().trim()
-        console.log(destination)
-        //.trim();
-
-        var date = $("#flightDate").val().trim()
-        console.log(date)
-        //.trim();
-
-        var maxPrice = $("#max-price").val().trim()
-        console.log(maxPrice)
-
-        // var origin = "LAX"
-        // var destination = "EWR"
-        // var date = "anytime" 
+        var origin = $("#inputField1").val().trim();
 
 
-        // //test code
+        if (origin != "") {
+            console.log("works")
 
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://rapidapi.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/" + origin + "/" + destination + "/" + date,
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-                "x-rapidapi-key": "273787c05bmshf3984eb1254cd02p1a20a5jsne40328fc0685"
-            }
-        };
+            console.log("clicked")
 
-        // console.log(JSON.stringify(settings))
-        //var quoteList = []
+           // var origin = $("#origin").val().trim();
+            //console.log(origin)
+            //.trim();
 
-        $.ajax(settings).done(function (response) {
-            console.log(response);
+            var destination = $("#destination").val().trim()
+            console.log(destination)
+            //.trim();
 
-            console.log(response.Quotes[0].MinPrice)
-            for (x = 0; x < response.Quotes.length; x++) {
+            var date = $("#flightDate").val().trim()
+            console.log(date)
+            //.trim();
 
-                if (parseInt(response.Quotes[x].MinPrice) <= parseInt(maxPrice)) {
-                    quoteList.push(JSON.stringify(response.Quotes[x]))
+            var maxPrice = $("#max-price").val().trim()
+            console.log(maxPrice)
+
+            // var origin = "LAX"
+            // var destination = "EWR"
+            // var date = "anytime" 
+
+
+            // //test code
+
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://rapidapi.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/" + origin + "/" + destination + "/" + date,
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+                    "x-rapidapi-key": "273787c05bmshf3984eb1254cd02p1a20a5jsne40328fc0685"
                 }
-            }
+            };
 
-            quoteList.sort(function (a, b) {
-                return b.Quotes - a.Quotes;
+            // console.log(JSON.stringify(settings))
+            //var quoteList = []
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+
+                console.log(response.Quotes[0].MinPrice)
+                for (x = 0; x < response.Quotes.length; x++) {
+
+                    if (parseInt(response.Quotes[x].MinPrice) <= parseInt(maxPrice)) {
+                        quoteList.push(JSON.stringify(response.Quotes[x]))
+                    }
+                }
+
+                quoteList.sort(function (a, b) {
+                    return b.Quotes - a.Quotes;
+                });
+                console.log(quoteList.toString())
+
+                //localStorage.setItem("numQuotes", quoteList.length)
+                /*for (y = 0; y < quoteList.length; y++) {
+                    localStorage.setItem(y, quoteList[y]);
+                }*/
+                localStorage.setItem("quotes", JSON.stringify(quoteList));
+
+                /*for (z = 0; z < response.Carriers.length; z++) {
+                    var myCarrier = 'Carrier' + z
+                    localStorage.setItem(myCarrier, JSON.stringify(response.Carriers[z]))
+                }*/
+                localStorage.setItem("carriers", JSON.stringify(response.Carriers))
+
+                /*for (m = 0; m < response.Places.length; m++) {
+                    console.log(response.Places[m].CountryName + "country name")
+                    console.log(response.Places[m].IataCode + "airline Code")
+                    if (response.Places[m].IataCode.toUpperCase() === destination.toUpperCase()) {
+                        console.log(response.Places[m].CountryName + "is our destination")
+                        localStorage.setItem("country", response.Places[m].CountryName)
+                        localStorage.setItem("city", response.Places[m].CityName)
+                    }
+                }*/
+                localStorage.setItem("places", JSON.stringify(response.Places));
+                window.location.href = "tickets.html"
             });
-            console.log(quoteList.toString())
-
-        localStorage.setItem("numQuotes", quoteList.length)
-            for (y = 0; y < quoteList.length; y++) {
-                localStorage.setItem(y, quoteList[y]);
-            }
-            for (z = 0; z < response.Carriers.length; z++) {
-                var myCarrier = 'Carrier' + z 
-                localStorage.setItem(myCarrier, JSON.stringify(response.Carriers[z]))
-            }
-        });
-        window.open("./tickets.html")
+            
+        }
     });
-    
-  
+
+
 
 
     // var contentUl = document.createElement("ul")
@@ -92,6 +121,8 @@ $(document).ready(function () {
 
 
 });
+
+
 /* function sort(items){
 
   for(x=0;x<items.quotes.length;x++)

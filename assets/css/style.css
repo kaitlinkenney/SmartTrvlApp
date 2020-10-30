@@ -133,7 +133,8 @@ h3 {
 }
 
  h4{
-    font-family: 'Dancing Script', cursive;
+    font-family: 'PT Serif', serif;
+    font-size: 20px;
  }
 
  h3, h4 {
@@ -146,10 +147,13 @@ h3 {
     float: right;
     margin-right: 180px;
     padding: 20px;
-    position: relative;
-    bottom: 130px;
 }
 
 .risks {
  margin-bottom: 12px;
+}
+
+h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
 }

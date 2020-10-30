@@ -10,6 +10,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&family=Dancing+Script&display=swap"
     rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&display=swap" rel="stylesheet">
+
   <link type="text/css" rel="stylesheet" href="assets/css/style.css" />
   <title>smartrvl - Book Flights</title>
 
@@ -41,23 +43,23 @@
             <div class="row">
               <div class="input-field col s12">
                 <i class="material-icons prefix">flight_takeoff</i>
-                <input id="origin" type="text" class="validate" placeholder="Origin">
-                <span class="helper-text" data-error="wrong" data-success="right">City, Country</span>
+                <input type="text" id= "inputField1" class="validate" placeholder="Origin(EWR)">
+                <span class="helper-text">Airport Code</span>
               </div>
               <div class="input-field col s12">
                 <i class="material-icons prefix">flight_land</i>
-                <input id="destination" type="text" class="validate" placeholder="Destination">
-                <span class="helper-text" data-error="wrong" data-success="right">City, Country</span>
+                <input id="destination" type="text" class="validate" placeholder="Destination(LAX)">
+                <span class="helper-text">Airport Code</span>
               </div>
               <div class="input-field col s6">
                 <i class="material-icons prefix">date_range</i>
                 <input id="flightDate" type="text" class="validate" placeholder="Date">
-                <span class="helper-text" data-error="wrong" data-success="right">YYYY-MM-DD</span>
+                <span class="helper-text">YYYY-MM-DD / Anytime</span>
               </div>
               <div class="input-field col s6">
                 <i class="material-icons prefix">attach_money</i>
                 <input id="max-price" type="tel" class="validate" placeholder="Budget">
-                <span class="helper-text" data-error="wrong" data-success="right">Max price</span>
+                <span class="helper-text">Max price</span>
               </div>
               <div class="input-field col s12">
                 <button id="submit" type="button">Go!</button>
