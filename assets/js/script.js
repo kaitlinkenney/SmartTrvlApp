@@ -22,8 +22,8 @@ $(document).ready(function () {
 
             console.log("clicked")
 
-           // var origin = $("#origin").val().trim();
-            //console.log(origin)
+        //    var origin = $("#origin").val().trim();
+        //     console.log(origin)
             //.trim();
 
             var destination = $("#destination").val().trim()
@@ -37,12 +37,10 @@ $(document).ready(function () {
             var maxPrice = $("#max-price").val().trim()
             console.log(maxPrice)
 
-            // var origin = "LAX"
-            // var destination = "EWR"
-            // var date = "anytime" 
+            var country = $("#country").val().trim()
+            console.log(country);
 
-
-            // //test code
+    
 
             var settings = {
                 "async": true,
@@ -55,8 +53,7 @@ $(document).ready(function () {
                 }
             };
 
-            // console.log(JSON.stringify(settings))
-            //var quoteList = []
+            
 
             $.ajax(settings).done(function (response) {
                 console.log(response);
@@ -74,75 +71,47 @@ $(document).ready(function () {
                 });
                 console.log(quoteList.toString())
 
-                //localStorage.setItem("numQuotes", quoteList.length)
-                /*for (y = 0; y < quoteList.length; y++) {
-                    localStorage.setItem(y, quoteList[y]);
-                }*/
+                
                 localStorage.setItem("quotes", JSON.stringify(quoteList));
 
-                /*for (z = 0; z < response.Carriers.length; z++) {
-                    var myCarrier = 'Carrier' + z
-                    localStorage.setItem(myCarrier, JSON.stringify(response.Carriers[z]))
-                }*/
+                
                 localStorage.setItem("carriers", JSON.stringify(response.Carriers))
 
-                /*for (m = 0; m < response.Places.length; m++) {
-                    console.log(response.Places[m].CountryName + "country name")
-                    console.log(response.Places[m].IataCode + "airline Code")
-                    if (response.Places[m].IataCode.toUpperCase() === destination.toUpperCase()) {
-                        console.log(response.Places[m].CountryName + "is our destination")
-                        localStorage.setItem("country", response.Places[m].CountryName)
-                        localStorage.setItem("city", response.Places[m].CityName)
-                    }
-                }*/
+                
                 localStorage.setItem("places", JSON.stringify(response.Places));
                 window.location.href = "tickets.html"
             });
-            
+        
+            var covsettings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://covid-19-data.p.rapidapi.com/country?format=json&name=" + country,
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
+                "x-rapidapi-key": "f6fec2edeemsh5fc937867d8bdb9p1b2b39jsnb45da81fe5d6"
+            }
         }
+
+
+        $.ajax(covsettings).done(function (response) {
+            console.log(response);
+
+            
+
+        localStorage.setItem("country", JSON.stringify(response.country));
+        localStorage.setItem("confirmed", JSON.stringify(response.confirmed));
+        localStorage.setItem("recovered", JSON.stringify(response.recovered));
+        localStorage.setItem("update", JSON.stringify(response.lastUpdate));
+        window.location.href = "tickets.html"
+
+        });
+            
+      }
+     
     });
 
 
 
 
-    // var contentUl = document.createElement("ul")
-    // for (var i = 0; i < priceList.Quotes.length; i++) {
-    //     console.log("Does this work:" + priceList.Quotes.length)
-
-    //     var contentLi = document.createElement("li");
-    //     contentLi.textContent = "Airline: " + high_score[i].name + " Price: " + high_score[i].score;
-    //     contentUl.append(contentLi);
-
-    // }
-
-    // document.body.append(contentUl);
-
-
-
-
 });
-
-
-/* function sort(items){
-
-  for(x=0;x<items.quotes.length;x++)
-  {
-
-    var temp = item[x];
-    if(item[x]>item[x+1])
-    {
-      item[x] = item[x+1]
-      item[x+1] = temp
-    }
-  }
-} */
-/*
-
-
-//
-
-
-// first page search button, origin location, destination location, price parameters
-
-// user starting country, currency, locale, originplace, destinationplace, outboundpartialdate
-*/
