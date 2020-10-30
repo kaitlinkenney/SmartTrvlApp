@@ -82,31 +82,45 @@ $(document).ready(function () {
                 window.location.href = "tickets.html"
             });
         
-            var covsettings = {
+        //     var covsettings = {
+        //     "async": true,
+        //     "crossDomain": true,
+        //     "url": "https://covid-19-data.p.rapidapi.com/country?format=json&name=" + country,
+        //     "method": "GET",
+        //     "headers": {
+        //         "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
+        //         "x-rapidapi-key": "f6fec2edeemsh5fc937867d8bdb9p1b2b39jsnb45da81fe5d6"
+        //     }
+        // }
+
+
+        // $.ajax(covsettings).done(function (response) {
+        //     console.log(response);
+        var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://covid-19-data.p.rapidapi.com/country?format=json&name=" + country,
+            "url": "https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats?country=Greece",
             "method": "GET",
             "headers": {
-                "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
-                "x-rapidapi-key": "f6fec2edeemsh5fc937867d8bdb9p1b2b39jsnb45da81fe5d6"
+                "x-rapidapi-host": "covid-19-coronavirus-statistics.p.rapidapi.com",
+                "x-rapidapi-key": "1f276bab2bmsh9755c7e198e2120p10a455jsnb0359ae2a1b6"
             }
         }
-
-
-        $.ajax(covsettings).done(function (response) {
+        
+        $.ajax(settings).done(function (response) {
             console.log(response);
-
+        
+        
             
 
-        localStorage.setItem("country", JSON.stringify(response.country));
-        localStorage.setItem("confirmed", JSON.stringify(response.confirmed));
-        localStorage.setItem("recovered", JSON.stringify(response.recovered));
-        localStorage.setItem("update", JSON.stringify(response.lastUpdate));
-        window.location.href = "tickets.html"
+        // localStorage.setItem("country", JSON.stringify(response.covid19Stats.country));
+        // localStorage.setItem("confirmed", JSON.stringify(response.covid19Stats.confirmed));
+        // //localStorage.setItem("recovered", JSON.stringify(response.lastChecked));
+        // localStorage.setItem("update", JSON.stringify(response.lastChecked));
+        // window.location.href = "tickets.html"
 
-        });
-            
+        // });
+            });
       }
      
     });

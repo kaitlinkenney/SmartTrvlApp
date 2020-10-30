@@ -15,7 +15,7 @@ $(document).ready(function () {
                 {
                     //console.log(carrierList[p].Name + "matches")
                     var cList = $("<h4>"+carriers[j].Name + "</h4>")
-                    $("#" + i + "a").append(cList);
+                    $("#" + i + "a").html(cList);
                 }
 
             }
@@ -38,23 +38,28 @@ $(document).ready(function () {
 function displayCovid() {
     var country = JSON.parse(localStorage.getItem("country"));
     var confirmed = JSON.parse(localStorage.getItem("confirmed"));
-    var recovered = JSON.parse(localStorage.getItem("recovered"));
+    //var recovered = JSON.parse(localStorage.getItem("recovered"));
     var update = JSON.parse(localStorage.getItem("update"));
 
 
     var covidDiv = ("<div class= 'covid'>");
 
         var pOne = $("<p>").text("Country: " + country);
-        covidDiv.append(pOne);
+        //covidDiv.append(pOne);
+        console.log(pOne);
 
         var pTwo = $("<p>").text("Confirmed Cases: " + confirmed);
-        covidDiv.append(pTwo);
+        //covidDiv.append(pTwo);
+        console.log(pTwo);
 
-        var pThree = $("<p>").text("Recovered Cases: " + recovered);
-        covidDiv.append(pThree);
+
+       // var pThree = $("<p>").text("Recovered Cases: " + recovered);
+        //covidDiv.append(pThree);
 
         var pFour = $("<p>").text("Last Updated: " + update);
-        covidDiv.append(pFour);
+        //covidDiv.append(pFour);
+        console.log(pFour);
+
 
 
 
