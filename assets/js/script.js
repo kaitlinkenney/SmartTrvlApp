@@ -4,11 +4,6 @@ $(document).ready(function () {
     //this is for the image slider.
     $('.slider').slider();
 
-    // if ("form" === null) {
-    //$("#submit").unbind('click');
-    // for HTML5 "required" attribute
-    //}
-
     localStorage.clear();
 
     $("#submit").on("click", function () {
@@ -18,28 +13,14 @@ $(document).ready(function () {
 
 
         if (origin != "") {
-            console.log("works")
-
-            console.log("clicked")
-
-        //    var origin = $("#origin").val().trim();
-        //     console.log(origin)
-            //.trim();
 
             var destination = $("#destination").val().trim()
-            console.log(destination)
-            //.trim();
 
             var date = $("#flightDate").val().trim()
-            console.log(date)
-            //.trim();
 
             var maxPrice = $("#max-price").val().trim()
-            console.log(maxPrice)
 
             var country = $("#country").val().trim()
-            console.log(country);
-
     
 
             var settings = {
@@ -83,12 +64,9 @@ $(document).ready(function () {
             });
         
             localStorage.setItem("country", country)
-            
+          
       }
      
     });
-
-
-
 
 });
