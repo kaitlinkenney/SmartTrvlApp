@@ -3,18 +3,26 @@ $(document).ready(function () {
     // var confirmed = pTwo
     // var recovered = pThree
     // var update = pFour
-    var quoteList = []
-    var carrierList = []
+    // var quoteList = []
+    // var carrierList = []
 
     var count = 0
     function displayPrices() {
         var quotes = JSON.parse(localStorage.getItem("quotes"));
         var carriers = JSON.parse(localStorage.getItem("carriers"));
-        for (i = 0; i < 5; i++) {
+        if((quotes.length-count)>5)
+        {
+            num = 5
+        }
+        else 
+        {
+            num = (quotes.length-count)
+        }
+        for (i = 0; i < num; i++) {
+            
             $("#" + i).text("$" + JSON.parse(quotes[count]).MinPrice);
 
             for (j = 0; j < carriers.length; j++) {
-
                 if (JSON.parse(quotes[count]).OutboundLeg.CarrierIds[0] == carriers[j].CarrierId) {
                     //console.log(carrierList[p].Name + "matches")
                     var cList = $("<h4>" + carriers[j].Name + "</h4>")
@@ -23,7 +31,7 @@ $(document).ready(function () {
 
             }
             count++;
-
+        
         }
 
     }

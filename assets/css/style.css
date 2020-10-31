@@ -116,7 +116,7 @@ td{
 
 .card-title {
     font-family: 'Times New Roman', Times, serif;
-    margin-left: 20px;
+    margin-left: 50px;
 }
 
 #homeBtn {
@@ -157,3 +157,12 @@ h2 {
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
 }
+
+#covidcountryinput {
+    text-align: center;
+}
+
+#covidcontent {
+    font-weight: bold;
+}
+
