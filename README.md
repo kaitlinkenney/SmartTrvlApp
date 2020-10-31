@@ -8,9 +8,11 @@
 
 Requirements:
 Include two APIs and do not use Bootstrap
+
 Frontend Goals:
 Use Materialize for CSS Styling
 Have a polished UI
+
 Backend Goals:
 Flight APIs
 Get user current city/country, wanted city/country, and max price point
@@ -34,7 +36,7 @@ BE Team: Maxwell Yu, Lohelani Hicks
 
 # Link to Deployed Application:
 
-https://kaitlinkenney.github.io/project1/
+https://kaitlinkenney.github.io/SmartTrvlApp/
 
 # Screenshot
 
