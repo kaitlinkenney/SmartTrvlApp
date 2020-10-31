@@ -1,10 +1,4 @@
 $(document).ready(function () {
-    // var country = pOne
-    // var confirmed = pTwo
-    // var recovered = pThree
-    // var update = pFour
-    // var quoteList = []
-    // var carrierList = []
 
     var count = 0
     function displayPrices() {
@@ -24,7 +18,6 @@ $(document).ready(function () {
 
             for (j = 0; j < carriers.length; j++) {
                 if (JSON.parse(quotes[count]).OutboundLeg.CarrierIds[0] == carriers[j].CarrierId) {
-                    //console.log(carrierList[p].Name + "matches")
                     var cList = $("<h4>" + carriers[j].Name + "</h4>")
                     $("#" + i + "a").html(cList);
                 }
@@ -35,9 +28,7 @@ $(document).ready(function () {
         }
 
     }
-    //when user clicks more options button, then the next 5 options will show.
     $(".moreOptions").on("click", function (e) {
-        //e.prevent.default();
         displayPrices();
         console.log('clicked' + count)
 
@@ -80,36 +71,9 @@ $(document).ready(function () {
         var pThree = $("<p>").text("Recovered Cases: " + recovered);
         covidDiv.append(pThree);
 
-        // var pFour = $("<p>").text("Last Updated: " + update);
-        // covidDiv.append(pFour);
         $("#covidcontent").append(covidDiv);
 
 
-        // localStorage.setItem("country", JSON.stringify(response.country));
-        // localStorage.setItem("confirmed", JSON.stringify(response.confirmed));
-        // localStorage.setItem("recovered", JSON.stringify(response.recovered));
-        // localStorage.setItem("update", JSON.stringify(response.lastUpdate));
-        // window.location.href = "tickets.html"
-
     });
-
-    function displayCovid() {
-        //     var country = JSON.parse(localStorage.getItem("country"));
-        //     var confirmed = JSON.parse(localStorage.getItem("confirmed"));
-        //     var recovered = JSON.parse(localStorage.getItem("recovered"));
-        //     var update = JSON.parse(localStorage.getItem("update"));
-
-        
-
-        
-
-
-
-        
-    }
-
-
-    displayCovid();
-
 
 });
